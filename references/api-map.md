@@ -32,13 +32,6 @@ Public surface of the Motion library, for consuming it in an app. Full source: h
 
 drag, pan, tap, hover, focus — surfaced as props on `motion` components (`whileHover`, `whileTap`, `drag`, …).
 
-## Compatibility matrix
+## Compatibility, install & versioning
 
-| Target | Support |
-|---|---|
-| React | `^18.0.0 \|\| ^19.0.0` |
-| Next.js | 14+ App Router ✅ (no `transpilePackages` needed) |
-| Electron | ✅ (Chromium renderer) |
-| TypeScript strict | ✅ — set `skipLibCheck: true` in the consumer |
-
-Install and version details: `references/installation.md`.
+The support matrix (React, Next.js, Electron, TypeScript), install commands for every package manager, and the version-pinning policy live in one canonical place: `references/installation.md`.

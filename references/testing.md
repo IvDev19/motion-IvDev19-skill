@@ -49,6 +49,8 @@ Do not set `TEST_PORT` globally via turbo — it hits both the React 18 and 19 s
 
 ## Next-frame helper
 
+Use this in **Jest** async tests to yield to Motion's frame loop between setup and assertion (JSDOM has no real `requestAnimationFrame` to await). Do not use it in Cypress — there, drive timing with `cy.wait()` or `.then()` chains.
+
 ```js
 async function nextFrame() {
   return new Promise((resolve) => frame.postRender(() => resolve()))

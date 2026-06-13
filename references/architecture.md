@@ -33,14 +33,14 @@ Dev apps: `dev/react` (React 18, port 9990), `dev/react-19` (port 9991), `dev/ne
 
 | When you need… | Read |
 |---|---|
-| Animation API | `packages/motion/src/index.ts` |
+| Animation API (animate, animators, sequences) | `packages/framer-motion/src/animation/` |
 | DOM rendering | `packages/motion-dom/src/render/` |
 | React integration | `packages/framer-motion/src/` |
 | Gesture handling | `packages/motion-dom/src/gestures/` |
 | Value interpolation | `packages/motion-dom/src/animation/` |
 | RSC compatibility | `packages/framer-motion/src/components/` |
 
-Never bulk-load `packages/framer-motion/src/index.ts` or `packages/motion/src/index.ts` — they are barrel exports that expand the entire library tree and flood context.
+Never bulk-load `packages/framer-motion/src/index.ts` or `packages/motion/src/index.ts` — they are barrel exports that expand the entire library tree and flood context. The public `motion` / `animate` surface is only re-exported through that `motion` barrel (a one-line file); read the implementation directories above instead of opening it.
 
 ## Build & dev commands — always run from the repo root
 

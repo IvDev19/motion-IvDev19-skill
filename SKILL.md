@@ -52,8 +52,8 @@ Compatibility: React 18 & 19, Next.js 14+ App Router (no `transpilePackages`), E
 | `references/architecture.md` | Navigating the codebase, build commands, package/dependency structure (Mode A) |
 | `references/testing.md` | Writing or running tests — Jest/Cypress/Playwright, React 18/19 dual-server (Mode A) |
 | `references/debugging.md` | Fixing a reported bug, or hitting a tooling gotcha (Mode A) |
-| `references/api-map.md` | Public API surface — hooks, components, entry points, compatibility (mostly Mode B) |
-| `references/installation.md` | Installing Motion, pinning, or upgrading in a downstream project (Mode B) |
+| `references/api-map.md` | Public API surface — hooks, components, entry points (mostly Mode B) |
+| `references/installation.md` | Installing Motion, the compatibility matrix, pinning, or upgrading (Mode B) |
 | `references/security-divergence.md` | Touching a diverged file, or auditing this fork against npm |
 
 If a reference is not present locally — for example a Cursor project where only the rule file was copied — fetch it from `https://raw.githubusercontent.com/IvDev19/motion-IvDev19-skill/main/references/` followed by the file name.
