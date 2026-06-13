@@ -1,0 +1,41 @@
+---
+description: Motion (Framer Motion) animation library v12.40.0 fork — engineering and integration rules. Applies to any React or DOM animation work.
+alwaysApply: true
+---
+
+# Motion (IvDev19 fork) skill — Cursor rules
+
+Self-contained guidance for the Motion animation library v12.40.0 fork. Full library source: https://github.com/IvDev19/motion-IvDev19. Trigger for any React or DOM animation work — `motion.div`, `useMotionValue`, `useSpring`, `useScroll`, `useTransform`, `AnimatePresence`, layout animations, gestures, scroll effects — even when it is not named.
+
+## Pick a mode
+
+- **Mode A — Motion source work** (bug fix, feature, or test in the library). Clone `https://github.com/IvDev19/motion-IvDev19`. Load `references/architecture.md`, `references/testing.md`, `references/debugging.md`.
+- **Mode B — downstream integration** (adding Motion to an app). `pnpm add motion@12.40.0` from npm. Ask the user's React version, CSS framework, and build tool; propose a plan before coding. Load `references/installation.md`, `references/api-map.md`.
+
+Editing `packages/` → Mode A. Importing `motion` into an app → Mode B.
+
+## Always-on rules
+
+- Never bulk-load the barrels `packages/framer-motion/src/index.ts` or `packages/motion/src/index.ts` — they expand the whole tree. Read on demand (navigation table in `references/architecture.md`).
+- Timing: `time.now()` from `motion-dom/src/frameloop/sync-time.ts`, never `performance.now()`.
+- Tests (Mode A): pure logic → Jest; React/DOM/WAAPI/gestures/scroll → Cypress; vanilla/cross-browser → Playwright. JSDOM lacks WAAPI — a green Jest test does not prove browser behavior. Write a failing test first.
+- Cypress: run against React 18 AND 19; start Vite directly per server (not turbo); use `.then()` not `.should()` for mid-animation reads; never set `TEST_PORT` globally. Details in `references/testing.md`.
+- Code style: named exports, `interface`, `const`/`let`, strict `===`, optional chaining; minimise bytes; comment only the non-obvious WHY.
+- Do not use `gh pr edit` on the source repo — it is broken there (Projects Classic deprecation); ignore the error.
+
+## Security divergence (do not revert)
+
+3 fixes across 2 files, absent from published `motion@12.40.0`:
+
+- **FIX-NEWC** — `packages/motion-dom/src/effects/attr/index.ts`: event-handler key denylist (SVG `setAttribute` XSS vector).
+- **FIX-5A + FIX-2B** — `.github/workflows/claude.yml`: SHA-pinned actions; `id-token: write` removed.
+
+Detail and rationale: `references/security-divergence.md`.
+
+## Install (Mode B)
+
+`pnpm add motion@12.40.0` (npm / yarn / bun equivalent; pin the version, install from npm, not `github:`). React 18 & 19, Next.js 14+ App Router, Electron, TypeScript strict (`skipLibCheck: true`). Full matrix: `references/installation.md`.
+
+## References — load on demand
+
+architecture / testing / debugging (Mode A) · api-map / installation (Mode B) · security-divergence (diverged files). If a `references/*.md` file is not in this project, fetch it from `https://raw.githubusercontent.com/IvDev19/motion-IvDev19-skill/main/references/`.

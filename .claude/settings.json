@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./node_modules/**)",
+      "Read(./yarn.lock)",
+      "Read(./CHANGELOG.md)",
+      "Read(./dist/**)",
+      "Read(**/*.map)",
+      "Read(**/*.min.js)",
+      "Read(**/*.min.css)",
+      "Read(**/*.log)"
+    ]
+  }
+}
