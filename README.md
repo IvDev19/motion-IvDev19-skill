@@ -69,6 +69,8 @@ This repo is a hand-maintained distillation, so it can drift when motion-IvDev19
 | `llms.txt` (API / compatibility) | `references/api-map.md` |
 | Published version (`12.40.0`) | `SKILL.md`, `.cursor/rules/motion-skill.mdc`, `README.md`, `references/installation.md` |
 
+**Drift guard — navigation tables.** When re-distilling the file-navigation table (in `references/architecture.md`), never carry a barrel `index.ts` (e.g. `packages/motion/src/index.ts`) into a "read this" row — it contradicts the always-on no-bulk-load rule. Point to the implementation directory instead (Animation API → `packages/framer-motion/src/animation/`). This contradiction lived in the source's own nav table until it was fixed upstream; the guard exists so a future re-distill cannot re-inherit it.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

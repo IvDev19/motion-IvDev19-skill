@@ -33,7 +33,7 @@ Dev apps: `dev/react` (React 18, port 9990), `dev/react-19` (port 9991), `dev/ne
 
 | When you need… | Read |
 |---|---|
-| Animation API (animate, animators, sequences) | `packages/framer-motion/src/animation/` |
+| Animation API (animate, animators, sequences, hooks — not the barrel index) | `packages/framer-motion/src/animation/` |
 | DOM rendering | `packages/motion-dom/src/render/` |
 | React integration | `packages/framer-motion/src/` |
 | Gesture handling | `packages/motion-dom/src/gestures/` |
